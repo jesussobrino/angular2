@@ -15,6 +15,16 @@
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
 
+    <!-- Polymer Script -->
+    <script>
+        window.Polymer = window.Polymer || {};
+        window.Polymer.dom = 'shadow';
+    </script>
+
+    <!-- Polymer imports -->
+    <link rel="import" href="bower_components/google-map/google-map.html">
+    <link rel="import" href="bower_components/google-map/google-map-marker.html">
+
     <!-- 2. Configure SystemJS -->
     <script>
         System.config({
@@ -32,6 +42,6 @@
 
 <!-- 3. Display the application -->
 <body>
-<my-app>Loading...</my-app>
+<my-google-maps-app>Loading...</my-google-maps-app>
 </body>
 </html>
