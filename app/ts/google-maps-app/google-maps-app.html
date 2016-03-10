@@ -1,0 +1,9 @@
+<div>
+    <google-map [latitude]="model.lat" [longitude]="model.long" disableDefaultUI>
+        <google-map-marker [latitude]="model.lat" [longitude]="model.long" [title]="model.location"
+                           click-events="true" (google-map-marker-click)="clickedMarker(data)">
+        </google-map-marker>
+    </google-map>
+
+    <map-coordinates-form (onUpdated)="onUpdated($event)"></map-coordinates-form>
+</div>

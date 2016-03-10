@@ -1,0 +1,27 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="my-bind-input">
+  <template>
+
+    <h3 class="page-title">My bind Input: {{greeting}}</h1>
+
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'my-bind-input',
+
+        properties: {
+          greeting: {
+            type: String,
+            value: 'Welcome!',
+            notify: true
+          }
+        }
+      });
+    })();
+  </script>
+</dom-module>

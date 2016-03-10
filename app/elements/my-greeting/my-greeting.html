@@ -1,0 +1,74 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="my-greeting">
+  <template>
+    <hr>
+    <div id="greetingContainer">
+      <button on-click="createMyGreeting">Add new "greeting" </button>
+      <h3 class="page-title">Greeting: {{greeting}}</h1>
+    </div>
+
+    <label for="greeting-input">Update the greeting text: </label>
+    <!-- Listens for "input" event and sets greeting to <input>.value -->
+    <input id="greeting-input" value="{{greeting::input}}">
+    <div id="myListContainer">
+      <my-list items="{{items}}"></my-list>
+    </div>
+    <button on-click="createMyList">Add new "my-list" </button>
+
+
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'my-greeting',
+
+        properties: {
+          model: {
+            type: Object,
+            value:{},
+            notify: true
+          },
+          greeting: {
+            type: String,
+            value: 'Welcome!',
+            notify: true,
+            observer: 'handleChange'
+          },
+          items: {
+            type: Array,
+            notify: true
+          }
+        },
+
+        handleChange: function() {
+          this.createMyGreeting();
+        },
+
+        createMyList: function() {
+          //this.greeting = 'createMyList';
+          var myListElement = document.createElement("my-list");
+          // myListElement.items = [
+          //   {"name": this.greeting+"1"},
+          //   {"name": this.greeting+"2"}
+          // ];
+
+          myListElement.items = this.items;
+          var miDiv = document.createElement("div");
+          miDiv.innerHTML = '<my-list items="{{items}}"></my-list>';
+          this.$.myListContainer.appendChild(myListElement);
+          this.$.myListContainer.appendChild(miDiv);
+        },
+
+        createMyGreeting: function() {
+          var myBindInput = document.createElement("my-bind-input");
+          myBindInput.greeting = this.greeting;
+          this.$.greetingContainer.appendChild(myBindInput);
+        }
+      });
+    })();
+  </script>
+</dom-module>
