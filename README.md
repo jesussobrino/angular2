@@ -2,7 +2,7 @@
 
 ## Overview
 
-- This app is a basic example of how to use Angular2 (Beta 8) in combination with Polymer component.
+- This app is a basic example of how to use Angular2 (version 2.0.0-beta.13) in combination with Polymer component.
 - In this example I'm using "google-map" and "google-map-marker" polymer components.
 - This app allows you to change the Latitude and Longitude coordinates in order to point the marker in the desired position.
 
